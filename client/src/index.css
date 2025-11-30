@@ -30,8 +30,8 @@
   --color-input: hsl(150 30% 20%);
   --color-ring: hsl(45 60% 50%);
 
-  --font-heading: 'Cinzel Decorative', cursive;
-  --font-body: 'Philosopher', sans-serif;
+  --font-heading: 'Rye', serif;
+  --font-body: 'Oxanium', cursive;
 }
 
 @layer base {
