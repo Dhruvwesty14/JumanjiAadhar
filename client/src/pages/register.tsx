@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import stoneTexture from "@assets/generated_images/weathered_green_ancient_stone_texture.png";
+import registerBg from "@assets/Gemini_Generated_Image_6htbum6htbum6htb_1764526244725.png";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -44,7 +45,7 @@ export default function Register() {
   }
 
   return (
-    <JungleLayout>
+    <JungleLayout backgroundImage={registerBg}>
       <div className="flex items-center justify-center py-12">
         <div 
           className="w-full max-w-md relative p-1 rounded-lg overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)]"

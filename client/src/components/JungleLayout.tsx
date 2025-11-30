@@ -62,7 +62,7 @@ export function Navigation() {
   );
 }
 
-export function JungleLayout({ children }: { children: React.ReactNode }) {
+export function JungleLayout({ children, backgroundImage }: { children: React.ReactNode; backgroundImage?: string }) {
   // Leaf generation logic
   const [leaves, setLeaves] = useState<{ id: number; left: string; delay: string }[]>([]);
 
@@ -80,7 +80,7 @@ export function JungleLayout({ children }: { children: React.ReactNode }) {
       {/* Background */}
       <div 
         className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-40 md:opacity-60"
-        style={{ backgroundImage: `url(${jungleBg})` }}
+        style={{ backgroundImage: `url(${backgroundImage || jungleBg})` }}
       />
       <div className="fixed inset-0 z-0 bg-black/50" /> {/* Overlay darkening */}
 

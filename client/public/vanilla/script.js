@@ -12,6 +12,14 @@ function navigateTo(pageId) {
         targetPage.classList.add('active');
     }
 
+    // Handle Background Change
+    const bgLayer = document.querySelector('.bg-layer');
+    if (pageId === 'register') {
+        bgLayer.style.backgroundImage = "url('/attached_assets/Gemini_Generated_Image_6htbum6htbum6htb_1764526244725.png')";
+    } else {
+        bgLayer.style.backgroundImage = "url('/attached_assets/Gemini_Generated_Image_ilvw3tilvw3tilvw_1764520493501.png')";
+    }
+
     // Update Nav Active State
     const links = document.querySelectorAll('.nav-links a');
     links.forEach(link => {
