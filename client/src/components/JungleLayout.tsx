@@ -1,7 +1,8 @@
 import { Link, useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import jungleBg from "@assets/generated_images/dark_cinematic_jungle_background_with_ancient_stone_ruins.png";
+import jungleBg from "@assets/Gemini_Generated_Image_ilvw3tilvw3tilvw_1764520493501.png";
+import logoImg from "@assets/WhatsApp Image 2025-11-30 at 21.10.32_9866522e_1764520541284.jpg";
 import { Menu, X } from "lucide-react";
 
 export function Navigation() {
@@ -19,17 +20,20 @@ export function Navigation() {
 
   return (
     <nav className="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent">
-      <div className="text-2xl md:text-3xl font-heading text-primary tracking-widest text-glow cursor-pointer">
-        <Link href="/">AADHAR</Link>
+      <div className="text-2xl md:text-3xl font-heading text-primary tracking-widest text-glow cursor-pointer flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
+          <img src={logoImg} alt="AADHAR Logo" className="h-12 w-12 rounded-full border-2 border-primary object-cover" />
+          <span>AADHAR</span>
+        </Link>
       </div>
 
       {/* Desktop Nav */}
       <div className="hidden md:flex gap-8">
         {links.map((link) => (
           <Link key={link.href} href={link.href}>
-            <a className={`font-heading tracking-wider text-sm transition-colors hover:text-primary hover:text-glow ${location === link.href ? "text-primary text-glow border-b border-primary" : "text-foreground/80"}`}>
+            <span className={`font-heading tracking-wider text-sm transition-colors hover:text-primary hover:text-glow cursor-pointer ${location === link.href ? "text-primary text-glow border-b border-primary" : "text-foreground/80"}`}>
               {link.label}
-            </a>
+            </span>
           </Link>
         ))}
       </div>
@@ -44,12 +48,12 @@ export function Navigation() {
         <div className="absolute top-full left-0 w-full bg-black/95 border-b border-primary/30 p-6 flex flex-col gap-4 md:hidden">
           {links.map((link) => (
             <Link key={link.href} href={link.href}>
-              <a 
-                className={`font-heading text-lg ${location === link.href ? "text-primary" : "text-foreground/70"}`}
+              <span 
+                className={`font-heading text-lg cursor-pointer ${location === link.href ? "text-primary" : "text-foreground/70"}`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
-              </a>
+              </span>
             </Link>
           ))}
         </div>
