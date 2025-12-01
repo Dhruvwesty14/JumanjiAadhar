@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import jungleBg from "@assets/Gemini_Generated_Image_ilvw3tilvw3tilvw_1764520493501.png";
 import logoImg from "@assets/WhatsApp Image 2025-11-30 at 21.10.32_9866522e_1764520541284.jpg";
+import heroVideo from "@assets/video_1764592214242.mp4";
 import { Menu, X } from "lucide-react";
 
 export function Navigation() {
@@ -77,11 +78,15 @@ export function JungleLayout({ children, backgroundImage }: { children: React.Re
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden text-foreground font-body selection:bg-primary selection:text-black">
-      {/* Background */}
-      <div 
-        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-40 md:opacity-60"
-        style={{ backgroundImage: `url(${backgroundImage || jungleBg})` }}
-      />
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        className="fixed inset-0 z-0 w-full h-full object-cover opacity-40 md:opacity-60"
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
       <div className="fixed inset-0 z-0 bg-black/50" /> {/* Overlay darkening */}
 
       {/* Fog Animation */}

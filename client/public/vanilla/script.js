@@ -12,12 +12,12 @@ function navigateTo(pageId) {
         targetPage.classList.add('active');
     }
 
-    // Handle Background Change
-    const bgLayer = document.querySelector('.bg-layer');
+    // Handle Background Change - Register page uses static image
+    const bgVideo = document.querySelector('.bg-video');
     if (pageId === 'register') {
-        bgLayer.style.backgroundImage = "url('/attached_assets/Gemini_Generated_Image_6htbum6htbum6htb_1764526244725.png')";
+        bgVideo.style.display = 'none';
     } else {
-        bgLayer.style.backgroundImage = "url('/attached_assets/Gemini_Generated_Image_ilvw3tilvw3tilvw_1764520493501.png')";
+        bgVideo.style.display = 'block';
     }
 
     // Update Nav Active State
