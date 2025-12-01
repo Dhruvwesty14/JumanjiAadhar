@@ -6,7 +6,7 @@ export function CountdownTimer() {
 
   useEffect(() => {
     const updateTimer = () => {
-      const targetDate = new Date("2025-02-01").getTime();
+      const targetDate = new Date(2025, 1, 1, 0, 0, 0).getTime();
       const now = new Date().getTime();
       const distance = targetDate - now;
 
@@ -17,6 +17,8 @@ export function CountdownTimer() {
           minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((distance % (1000 * 60)) / 1000),
         });
+      } else {
+        setTime({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       }
     };
 

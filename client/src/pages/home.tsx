@@ -16,7 +16,7 @@ const events = [
 export default function Home() {
   return (
     <JungleLayout>
-      <div className="flex flex-col items-center justify-center min-h-[80vh] text-center py-12 mb-12">
+      <div className="flex flex-col items-center justify-center min-h-screen text-center py-20 mb-8">
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -26,7 +26,7 @@ export default function Home() {
           <h2 className="text-primary text-lg md:text-2xl tracking-[0.5em] mb-4 opacity-80">POORNIMA COLLEGE PRESENTS</h2>
           <h1 className="text-6xl md:text-9xl font-heading text-glow leading-tight bg-clip-text text-transparent bg-gradient-to-b from-amber-200 to-amber-600" 
               style={{ textShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
-            AADHAR
+            AADHAR '14
           </h1>
           <p className="text-xl md:text-2xl mt-6 text-emerald-100/80 max-w-2xl mx-auto font-body tracking-wide">
             THE JUNGLE IS CALLING. DO YOU DARE TO ENTER?
@@ -61,7 +61,14 @@ export default function Home() {
       </div>
 
       {/* Countdown Timer */}
-      <CountdownTimer />
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="py-16"
+      >
+        <CountdownTimer />
+      </motion.div>
 
       {/* AADHAR '14 Info Section */}
       <motion.section
@@ -69,7 +76,7 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="my-12 py-12"
+        className="my-16 py-16"
       >
         <h2 className="text-4xl md:text-6xl font-heading text-primary text-glow mb-8 text-center">AADHAR '14</h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -94,7 +101,7 @@ export default function Home() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="my-20 py-12"
+        className="my-20 py-16 mb-20"
       >
         <h2 className="text-4xl md:text-6xl font-heading text-primary text-glow mb-12 text-center">THE LEVELS AWAIT</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
