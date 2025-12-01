@@ -69,7 +69,7 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="my-20 py-12 border-t border-b border-emerald-900/50"
+        className="my-12 py-12"
       >
         <h2 className="text-4xl md:text-6xl font-heading text-primary text-glow mb-8 text-center">AADHAR '14</h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
