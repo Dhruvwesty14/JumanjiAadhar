@@ -1,7 +1,5 @@
 import { JungleLayout } from "@/components/JungleLayout";
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
-import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const teams = [
@@ -60,53 +58,53 @@ const teams = [
       { name: "Neeraj", year: "1st Year", image: "" },
     ],
   },
-  {
-    name: "Event Legacy",
-    members: [
-      { name: "Lucky Pandey", year: "2nd Year", role: "Captain", image: "" },
-      { name: "Prachi Garg", year: "1st Year", role: "Vice Captain", image: "" },
-      { name: "Harsh Dambwar", year: "1st Year", role: "Vice Captain", image: "" },
-    ],
-    subTeams: [
-      {
-        name: "Robo War",
-        members: [
-          { name: "Aashish Jangid", year: "2nd Year", image: "" },
-          { name: "Manan Gupta", year: "2nd Year", image: "" },
-          { name: "Harsh Dambwar", year: "1st Year", image: "" },
-        ],
-      },
-      {
-        name: "R/C Car",
-        members: [
-          { name: "Jatin Bansal", year: "2nd Year", image: "" },
-          { name: "Devashish Santpal", year: "1st Year", image: "" },
-        ],
-      },
-      {
-        name: "Robo Soccer",
-        members: [
-          { name: "Manan Gupta", year: "2nd Year", image: "" },
-          { name: "Vineet Sharma", year: "1st Year", image: "" },
-        ],
-      },
-      {
-        name: "Cozmo Clench",
-        members: [
-          { name: "Rudrakshi Kilede", year: "2nd Year", image: "" },
-          { name: "Aniket Sharma", year: "1st Year", image: "" },
-        ],
-      },
-      {
-        name: "Line Follower",
-        members: [
-          { name: "Imsa Khan", year: "2nd Year", image: "" },
-          { name: "Kashvi Agrawal", year: "1st Year", image: "" },
-        ],
-      },
-    ],
-  },
 ];
+
+const eventLegacy = {
+  leads: [
+    { name: "Lucky Pandey", year: "2nd Year", role: "Captain", image: "" },
+    { name: "Prachi Garg", year: "1st Year", role: "Vice Captain", image: "" },
+    { name: "Harsh Dambwar", year: "1st Year", role: "Vice Captain", image: "" },
+  ],
+  subTeams: [
+    {
+      name: "Robo War",
+      members: [
+        { name: "Aashish Jangid", year: "2nd Year", image: "" },
+        { name: "Manan Gupta", year: "2nd Year", image: "" },
+        { name: "Harsh Dambwar", year: "1st Year", image: "" },
+      ],
+    },
+    {
+      name: "R/C Car",
+      members: [
+        { name: "Jatin Bansal", year: "2nd Year", image: "" },
+        { name: "Devashish Santpal", year: "1st Year", image: "" },
+      ],
+    },
+    {
+      name: "Robo Soccer",
+      members: [
+        { name: "Manan Gupta", year: "2nd Year", image: "" },
+        { name: "Vineet Sharma", year: "1st Year", image: "" },
+      ],
+    },
+    {
+      name: "Cozmo Clench",
+      members: [
+        { name: "Rudrakshi Kilede", year: "2nd Year", image: "" },
+        { name: "Aniket Sharma", year: "1st Year", image: "" },
+      ],
+    },
+    {
+      name: "Line Follower",
+      members: [
+        { name: "Imsa Khan", year: "2nd Year", image: "" },
+        { name: "Kashvi Agrawal", year: "1st Year", image: "" },
+      ],
+    },
+  ],
+};
 
 function getInitials(name: string) {
   return name
@@ -116,93 +114,111 @@ function getInitials(name: string) {
     .toUpperCase();
 }
 
-function TeamSection({ team }: { team: (typeof teams)[0] }) {
-  const [expanded, setExpanded] = useState(false);
-
+function MemberCard({ member, index }: { member: (typeof teams)[0]["members"][0]; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ delay: index * 0.1, duration: 0.5 }}
       viewport={{ once: true }}
-      className="bg-black/60 border border-emerald-900/50 p-6 rounded-lg backdrop-blur-sm"
+      className="flex flex-col items-center group"
     >
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className="w-full flex items-center justify-between hover:text-primary transition-colors"
-      >
-        <h3 className="text-2xl font-heading text-amber-400">{team.name}</h3>
-        <ChevronDown className={`w-6 h-6 transition-transform ${expanded ? "rotate-180" : ""}`} />
-      </button>
-
-      {expanded && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="mt-6 space-y-4"
-        >
-          {/* Main Team Members */}
-          {team.members && team.members.length > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {team.members.map((member, i) => (
-                <div key={i} className="flex items-center gap-4 p-4 bg-black/40 rounded border border-emerald-900/30 hover:border-primary/50 transition-all">
-                  <Avatar className="w-16 h-16 border-2 border-primary/50 flex-shrink-0">
-                    <AvatarImage src={member.image} />
-                    <AvatarFallback className="bg-emerald-900/50 text-primary font-heading text-sm">{getInitials(member.name)}</AvatarFallback>
-                  </Avatar>
-                  <div className="flex-1">
-                    <p className="text-emerald-200 font-heading">{member.name}</p>
-                    {member.role && <p className="text-primary text-xs font-heading uppercase">{member.role}</p>}
-                    <p className="text-emerald-400/60 text-xs">{member.year}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* Sub Teams */}
-          {team.subTeams && team.subTeams.length > 0 && (
-            <div className="mt-6 space-y-6 border-t border-emerald-900/50 pt-4">
-              {team.subTeams.map((subTeam, i) => (
-                <div key={i} className="space-y-3">
-                  <h4 className="text-lg font-heading text-primary mb-4">{subTeam.name}</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 ml-4">
-                    {subTeam.members.map((member, j) => (
-                      <div key={j} className="flex items-center gap-3 p-3 bg-emerald-900/10 rounded border border-emerald-900/30 hover:border-primary/30 transition-all">
-                        <Avatar className="w-12 h-12 border border-primary/30 flex-shrink-0">
-                          <AvatarImage src={member.image} />
-                          <AvatarFallback className="bg-emerald-900/50 text-primary font-heading text-xs">{getInitials(member.name)}</AvatarFallback>
-                        </Avatar>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-emerald-200 text-sm font-heading truncate">{member.name}</p>
-                          <p className="text-emerald-400/60 text-xs">{member.year}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </motion.div>
-      )}
+      <Avatar className="w-32 h-32 border-4 border-primary/30 group-hover:border-primary transition-all duration-300 mb-4">
+        <AvatarImage src={member.image} />
+        <AvatarFallback className="bg-emerald-900/50 text-primary font-heading text-2xl">{getInitials(member.name)}</AvatarFallback>
+      </Avatar>
+      <h4 className="text-lg font-heading text-emerald-100 group-hover:text-primary transition-colors text-center">{member.name}</h4>
+      <p className="text-emerald-400/60 text-xs uppercase tracking-widest mt-1">{member.year}</p>
     </motion.div>
+  );
+}
+
+function TeamSection({ team, index }: { team: (typeof teams)[0]; index: number }) {
+  return (
+    <motion.section
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1, duration: 0.6 }}
+      viewport={{ once: true }}
+      className="mb-16"
+    >
+      <h2 className="text-3xl md:text-4xl font-heading text-amber-400 text-glow mb-8 pb-4 border-b border-emerald-900/50">{team.name}</h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        {team.members.map((member, i) => (
+          <MemberCard key={i} member={member} index={i} />
+        ))}
+      </div>
+    </motion.section>
   );
 }
 
 export default function Team() {
   return (
     <JungleLayout>
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <h1 className="text-5xl md:text-7xl font-heading text-primary text-glow mb-4 text-center">THE GUARDIANS</h1>
-        <p className="text-center text-emerald-400 mb-12 tracking-wider">Click to expand team details • Add member photos via image URLs</p>
+        <p className="text-center text-emerald-400 mb-16 tracking-wider">The Heroes Behind AADHAR</p>
 
-        <div className="space-y-6 pb-12">
-          {teams.map((team, i) => (
-            <TeamSection key={i} team={team} />
-          ))}
-        </div>
+        {/* Main Teams */}
+        {teams.map((team, i) => (
+          <TeamSection key={i} team={team} index={i} />
+        ))}
+
+        {/* Event Legacy Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-heading text-amber-400 text-glow mb-8 pb-4 border-b border-emerald-900/50">Event Legacy</h2>
+
+          {/* Leadership */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-heading text-primary mb-6">Leadership</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+              {eventLegacy.leads.map((member, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1, duration: 0.5 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col items-center group"
+                >
+                  <Avatar className="w-32 h-32 border-4 border-primary group-hover:border-amber-400 transition-all duration-300 mb-4">
+                    <AvatarImage src={member.image} />
+                    <AvatarFallback className="bg-emerald-900/50 text-primary font-heading text-2xl">{getInitials(member.name)}</AvatarFallback>
+                  </Avatar>
+                  <h4 className="text-lg font-heading text-emerald-100 group-hover:text-primary transition-colors text-center">{member.name}</h4>
+                  <p className="text-primary text-xs font-heading uppercase tracking-widest mt-1">{member.role}</p>
+                  <p className="text-emerald-400/60 text-xs uppercase tracking-widest">{member.year}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Event Sub-Teams */}
+          <div className="space-y-12">
+            {eventLegacy.subTeams.map((subTeam, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-heading text-emerald-400 mb-6 pl-4 border-l-4 border-primary">{subTeam.name}</h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                  {subTeam.members.map((member, j) => (
+                    <MemberCard key={j} member={member} index={j} />
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
       </div>
     </JungleLayout>
   );
