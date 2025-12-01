@@ -2,11 +2,30 @@ import { JungleLayout } from "@/components/JungleLayout";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
+import video from "@assets/video_1764592214242.mp4";
 
 export default function Home() {
   return (
     <JungleLayout>
       <div className="flex flex-col items-center justify-center flex-1 text-center py-12">
+        {/* Hero Video */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="w-full max-w-2xl mb-12 rounded-lg overflow-hidden border-2 border-primary/30 shadow-[0_0_30px_rgba(234,179,8,0.2)]"
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            className="w-full h-auto"
+          >
+            <source src={video} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </motion.div>
+
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
