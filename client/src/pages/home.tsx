@@ -74,15 +74,15 @@ export default function Home() {
         <h2 className="text-4xl md:text-6xl font-heading text-primary text-glow mb-8 text-center">AADHAR '14</h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div className="bg-black/60 backdrop-blur-sm p-8 border border-emerald-900/50">
-            <h3 className="text-2xl font-heading text-amber-400 mb-4">THE LEGEND</h3>
+            <h3 className="text-2xl font-heading text-amber-400 mb-4">BORN IN 2007</h3>
             <p className="text-emerald-200 leading-relaxed">
-              AADHAR stands as the beacon of innovation at Poornima College. Since its inception, it has brought together the brightest minds to compete, collaborate, and celebrate technology. This year, we venture deeper into the jungle with new challenges and greater rewards.
+              Launched by the Zircon Club with a vision to enhance every talent. AADHAR has been fostering cooperation, teamwork, and excellence among Poornima students for over a decade. A platform where every talent finds its stage and every student proves their worth.
             </p>
           </div>
           <div className="bg-black/60 backdrop-blur-sm p-8 border border-emerald-900/50">
-            <h3 className="text-2xl font-heading text-amber-400 mb-4">THE CHALLENGE</h3>
+            <h3 className="text-2xl font-heading text-amber-400 mb-4">YOUR PLATFORM</h3>
             <p className="text-emerald-200 leading-relaxed">
-              Two days. Six levels. Infinite possibilities. From coding marathons to creative competitions, AADHAR '14 tests every skill. Whether you're a seasoned warrior or a rookie adventurer, there's a level waiting for you. Will you answer the call?
+              AADHAR '14 brings 17 levels across coding, robotics, gaming, and creativity. From 24-hour hackathons to esports tournaments, treasure hunts to robot wars—this is where first-year students implement their academic knowledge and showcase real-world skills. Your talent. Your stage. Your moment.
             </p>
           </div>
         </div>
