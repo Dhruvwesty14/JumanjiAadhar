@@ -13,10 +13,10 @@ export function Navigation() {
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "/register", label: "Enter The Game" },
     { href: "/events", label: "Levels" },
     { href: "/about", label: "The Legend" },
     { href: "/team", label: "Guardians" },
+    { href: "/register", label: "Enter The Game" },
     { href: "/contact", label: "Signal" },
   ];
 
