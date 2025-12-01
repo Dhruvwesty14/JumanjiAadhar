@@ -2,6 +2,7 @@ import { JungleLayout } from "@/components/JungleLayout";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
+import { CountdownTimer } from "@/components/CountdownTimer";
 
 const events = [
   { id: 1, title: "CODE SAFARI", type: "Hackathon", desc: "24-hour survival coding challenge." },
@@ -58,6 +59,9 @@ export default function Home() {
           </Link>
         </motion.div>
       </div>
+
+      {/* Countdown Timer */}
+      <CountdownTimer />
 
       {/* AADHAR '14 Info Section */}
       <motion.section
