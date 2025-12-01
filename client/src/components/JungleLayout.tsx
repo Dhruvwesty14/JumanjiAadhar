@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import jungleBg from "@assets/Gemini_Generated_Image_ilvw3tilvw3tilvw_1764520493501.png";
 import logoImg from "@assets/WhatsApp Image 2025-11-30 at 21.10.32_9866522e_1764520541284.jpg";
 import heroVideo from "@assets/video_1764592214242.mp4";
+import { Footer } from "./Footer";
 import { Menu, X } from "lucide-react";
 
 export function Navigation() {
@@ -122,6 +123,8 @@ export function JungleLayout({ children, backgroundImage }: { children: React.Re
           {children}
         </motion.div>
       </main>
+      
+      <Footer />
       
       {/* Sound Toggle (Visual Only) */}
       <div className="fixed bottom-4 right-4 z-50 text-xs text-primary/50 font-mono">

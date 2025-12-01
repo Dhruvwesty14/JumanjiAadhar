@@ -1,10 +1,13 @@
 import { JungleLayout } from "@/components/JungleLayout";
+import { CountdownTimer } from "@/components/CountdownTimer";
 
 export default function About() {
   return (
     <JungleLayout>
       <div className="max-w-4xl mx-auto py-12 text-center md:text-left">
         <h1 className="text-5xl md:text-7xl font-heading text-primary text-glow mb-12 text-center">THE LEGEND OF AADHAR</h1>
+        
+        <CountdownTimer />
         
         <div className="space-y-8 bg-black/60 p-8 border-l-4 border-primary backdrop-blur-sm">
           <p className="text-xl md:text-2xl text-emerald-100 leading-relaxed">
