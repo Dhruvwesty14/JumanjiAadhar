@@ -10,6 +10,17 @@ const events = [
   { id: 4, title: "JUNGLE BEATS", type: "Cultural", desc: "Rhythm and dance competition." },
   { id: 5, title: "SURVIVOR", type: "Gaming", desc: "Battle Royale tournament." },
   { id: 6, title: "MYSTIC MINDS", type: "Quiz", desc: "Test your knowledge of the ancient tech." },
+  { id: 7, title: "ROBO RACE", type: "Robotics", desc: "High-speed autonomous robot race." },
+  { id: 8, title: "ROBO CAR", type: "Robotics", desc: "Design and control the ultimate robot vehicle." },
+  { id: 9, title: "ROBO WAR", type: "Robotics", desc: "Battle bots in the arena of champions." },
+  { id: 10, title: "COSMO CLASH", type: "Gaming", desc: "Epic space warfare gaming tournament." },
+  { id: 11, title: "LINE FOLLOWER", type: "Robotics", desc: "Master precision with line-tracking bots." },
+  { id: 12, title: "TREASURE HUNT", type: "Adventure", desc: "Solve riddles and find hidden treasures." },
+  { id: 13, title: "HOVERCRAFT RACE", type: "Robotics", desc: "Race hovering machines through obstacles." },
+  { id: 14, title: "12-HOUR HACKATHON", type: "Hackathon", desc: "Rapid development sprint to build and ship." },
+  { id: 15, title: "VALORANT", type: "Gaming", desc: "Tactical 5v5 esports competition." },
+  { id: 16, title: "FREE FIRE", type: "Gaming", desc: "Battle royale gaming championship." },
+  { id: 17, title: "PUBG", type: "Gaming", desc: "Ultimate survival battle royale tournament." },
 ];
 
 export default function Events() {
@@ -17,7 +28,7 @@ export default function Events() {
     <JungleLayout>
       <h1 className="text-5xl font-heading text-primary text-glow mb-12 text-center">CHOOSE YOUR LEVEL</h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-12" data-testid="events-grid">
         {events.map((event) => (
           <Card key={event.id} className="bg-transparent border-none relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
              <div className="absolute inset-0 bg-cover opacity-30 group-hover:opacity-50 transition-opacity" style={{ backgroundImage: `url(${stoneTexture})` }}></div>

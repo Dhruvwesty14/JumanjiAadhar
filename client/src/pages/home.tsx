@@ -7,10 +7,10 @@ import { CountdownTimer } from "@/components/CountdownTimer";
 const events = [
   { id: 1, title: "CODE SAFARI", type: "Hackathon", desc: "24-hour survival coding challenge." },
   { id: 2, title: "BUG HUNT", type: "Debugging", desc: "Find the venomous bugs in code." },
-  { id: 3, title: "TEMPLE RUN", type: "Robotics", desc: "Navigate your bot through the maze." },
-  { id: 4, title: "JUNGLE BEATS", type: "Cultural", desc: "Rhythm and dance competition." },
-  { id: 5, title: "SURVIVOR", type: "Gaming", desc: "Battle Royale tournament." },
-  { id: 6, title: "MYSTIC MINDS", type: "Quiz", desc: "Test your tech knowledge." },
+  { id: 3, title: "ROBO RACE", type: "Robotics", desc: "High-speed autonomous robot race." },
+  { id: 4, title: "COSMO CLASH", type: "Gaming", desc: "Epic space warfare tournament." },
+  { id: 5, title: "TREASURE HUNT", type: "Adventure", desc: "Solve riddles, find treasures." },
+  { id: 6, title: "VALORANT", type: "Gaming", desc: "Tactical 5v5 esports competition." },
 ];
 
 export default function Home() {
