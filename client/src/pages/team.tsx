@@ -133,7 +133,20 @@ function MemberCard({ member, index }: { member: (typeof teams)[0]["members"][0]
   );
 }
 
+function getGridClass(count: number) {
+  if (count === 1) return "grid-cols-1 md:grid-cols-1 lg:grid-cols-1";
+  if (count === 2) return "grid-cols-2 md:grid-cols-2 lg:grid-cols-2";
+  if (count === 3) return "grid-cols-3 md:grid-cols-3 lg:grid-cols-3";
+  if (count === 4) return "grid-cols-2 md:grid-cols-2 lg:grid-cols-4";
+  if (count === 5) return "grid-cols-2 md:grid-cols-3 lg:grid-cols-5";
+  if (count === 6) return "grid-cols-3 md:grid-cols-3 lg:grid-cols-6";
+  if (count === 7) return "grid-cols-2 md:grid-cols-3 lg:grid-cols-4";
+  if (count <= 12) return "grid-cols-2 md:grid-cols-3 lg:grid-cols-4";
+  return "grid-cols-2 md:grid-cols-4 lg:grid-cols-5";
+}
+
 function TeamSection({ team, index }: { team: (typeof teams)[0]; index: number }) {
+  const gridClass = getGridClass(team.members.length);
   return (
     <motion.section
       initial={{ opacity: 0, y: 30 }}
@@ -143,7 +156,7 @@ function TeamSection({ team, index }: { team: (typeof teams)[0]; index: number }
       className="mb-16"
     >
       <h2 className="text-3xl md:text-4xl font-heading text-amber-400 text-glow mb-8 pb-4 border-b border-emerald-900/50">{team.name}</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div className={`grid ${gridClass} gap-8`}>
         {team.members.map((member, i) => (
           <MemberCard key={i} member={member} index={i} />
         ))}
@@ -177,7 +190,7 @@ export default function Team() {
           {/* Leadership */}
           <div className="mb-12">
             <h3 className="text-2xl font-heading text-primary mb-6">Leadership</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div className={`grid ${getGridClass(eventLegacy.leads.length)} gap-8`}>
               {eventLegacy.leads.map((member, i) => (
                 <motion.div
                   key={i}
@@ -210,7 +223,7 @@ export default function Team() {
                 viewport={{ once: true }}
               >
                 <h3 className="text-2xl font-heading text-emerald-400 mb-6 pl-4 border-l-4 border-primary">{subTeam.name}</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <div className={`grid ${getGridClass(subTeam.members.length)} gap-8`}>
                   {subTeam.members.map((member, j) => (
                     <MemberCard key={j} member={member} index={j} />
                   ))}
