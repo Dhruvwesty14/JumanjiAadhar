@@ -32,7 +32,7 @@ export function CountdownTimer() {
       transition={{ duration: 0.6 }}
       className="w-full py-12 mb-12"
     >
-      <h2 className="text-4xl md:text-5xl font-heading text-primary text-glow mb-12 text-center">THE GAME BEGINS IN</h2>
+      <h2 className="text-4xl md:text-5xl font-heading text-primary text-glow mb-12 text-center">AADHAR '14 - THE GAME BEGINS IN</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-3xl mx-auto">
         {[
           { label: "DAYS", value: time.days },

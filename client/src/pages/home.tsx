@@ -71,7 +71,7 @@ export default function Home() {
         viewport={{ once: true }}
         className="my-20 py-12 border-t border-b border-emerald-900/50"
       >
-        <h2 className="text-4xl md:text-6xl font-heading text-primary text-glow mb-8 text-center">AADHAR '25</h2>
+        <h2 className="text-4xl md:text-6xl font-heading text-primary text-glow mb-8 text-center">AADHAR '14</h2>
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div className="bg-black/60 backdrop-blur-sm p-8 border border-emerald-900/50">
             <h3 className="text-2xl font-heading text-amber-400 mb-4">THE LEGEND</h3>
@@ -82,7 +82,7 @@ export default function Home() {
           <div className="bg-black/60 backdrop-blur-sm p-8 border border-emerald-900/50">
             <h3 className="text-2xl font-heading text-amber-400 mb-4">THE CHALLENGE</h3>
             <p className="text-emerald-200 leading-relaxed">
-              Two days. Six levels. Infinite possibilities. From coding marathons to creative competitions, AADHAR '25 tests every skill. Whether you're a seasoned warrior or a rookie adventurer, there's a level waiting for you. Will you answer the call?
+              Two days. Six levels. Infinite possibilities. From coding marathons to creative competitions, AADHAR '14 tests every skill. Whether you're a seasoned warrior or a rookie adventurer, there's a level waiting for you. Will you answer the call?
             </p>
           </div>
         </div>
