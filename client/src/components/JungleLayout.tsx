@@ -65,6 +65,7 @@ export function Navigation() {
 }
 
 export function JungleLayout({ children, backgroundImage }: { children: React.ReactNode; backgroundImage?: string }) {
+  const [location] = useLocation();
   // Leaf generation logic
   const [leaves, setLeaves] = useState<{ id: number; left: string; delay: string }[]>([]);
 
@@ -76,6 +77,11 @@ export function JungleLayout({ children, backgroundImage }: { children: React.Re
     }));
     setLeaves(newLeaves);
   }, []);
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden text-foreground font-body selection:bg-primary selection:text-black">
